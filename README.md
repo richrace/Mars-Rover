@@ -4,13 +4,11 @@ Mars-Rover
 Simple Mars Rover Application that uses the state design approach.
 
 
-Author 
-==========
+## Author 
 
 Richard Race
 
 
-License
-==========
+## License
 
 MIT
