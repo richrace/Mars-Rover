@@ -3,7 +3,6 @@ class FacingSouthState
 		wanted = rover.location[:y] - 1
 		if wanted >= 0
 			rover.location[:y] = wanted
-			puts "Moving to X: #{rover.location[:x]} Y: #{rover.location[:y]}"
 		end
 	end
 

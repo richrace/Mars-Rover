@@ -3,7 +3,6 @@ class FacingNorthState
 		wanted = rover.location[:y] + 1
 		if rover.grid.limit[:y] >= wanted		
 			rover.location[:y] = wanted
-			puts "Moving to X: #{rover.location[:x]} Y: #{rover.location[:y]}"
 		end
 	end
 
