@@ -1,3 +1,4 @@
+require 'spec_helper'
 require './lib/grid'
 require './lib/rover'
 require './lib/states/facing_north_state'
