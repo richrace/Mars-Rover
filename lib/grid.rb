@@ -1,9 +1,10 @@
 class Grid
-	attr_accessor :xlimit, :ylimit
+	attr_accessor :limit
 
 	def initialize(xlimit, ylimit)
-		@xlimit = xlimit.to_i
-		@ylimit = ylimit.to_i
-		raise RangeError, "Zero (0) is not acceptable as a grid" if @xlimit <= 0 || @ylimit <= 0
+    @limit = {}
+		@limit[:x] = xlimit.to_i
+		@limit[:y] = ylimit.to_i
+		raise RangeError, "Zero (0) is not acceptable as a grid" if @limit[:x] <= 0 || @limit[:y] <= 0
 	end
 end
