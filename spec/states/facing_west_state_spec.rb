@@ -7,22 +7,26 @@ require './lib/states/facing_south_state'
 
 describe "FacingWestState" do 
 
+	before(:each) do
+		@state = FacingWestState.new
+	end
+
 	describe "#move" do
-		it "can move backwards along x axis" do
+		it "can move backwards along x axis" do			
 			grid = Grid.new(10,10)
-			rover = Rover.new(5, 5, grid, FacingWestState.new)
+			rover = Rover.new(5, 5, grid, @state)
 
 			rover.location[:x].should == 5
-			rover.state.move(rover)
+			@state.move(rover)
 			rover.location[:x].should == 4
 		end
 
 		it "can not move backwards past 0" do
 			grid = Grid.new(10,10)
-			rover = Rover.new(0, 0, grid, FacingWestState.new)
+			rover = Rover.new(0, 0, grid, @state)
 
 			rover.location[:x].should == 0
-			rover.state.move(rover)
+			@state.move(rover)
 			rover.location[:x].should == 0
 		end
 	end
@@ -30,10 +34,10 @@ describe "FacingWestState" do
 	describe "#turn_left" do
 		it "can move left and change rover's state to FacingSouthState" do
 			grid = Grid.new(10,10)
-			rover = Rover.new(5, 5, grid, FacingWestState.new)
+			rover = Rover.new(5, 5, grid, @state)
 
 			rover.state.class.should == FacingWestState
-			rover.state.turn_left(rover)
+			@state.turn_left(rover)
 			rover.state.class.should == FacingSouthState
 		end
 	end
@@ -41,11 +45,17 @@ describe "FacingWestState" do
 	describe "#turn_right" do
 		it "can move right and change rover's state to FacingNorthState" do
 			grid = Grid.new(10,10)
-			rover = Rover.new(5, 5, grid, FacingWestState.new)
+			rover = Rover.new(5, 5, grid, @state)
 
 			rover.state.class.should == FacingWestState
-			rover.state.turn_right(rover)
+			@state.turn_right(rover)
 			rover.state.class.should == FacingNorthState
+		end
+	end
+
+	describe "#direction" do
+		it "will return West String" do
+			@state.direction.should eq "West"
 		end
 	end
 end
