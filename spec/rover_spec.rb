@@ -19,12 +19,20 @@ describe Rover do
 	end
 
   describe "#move" do
-    it "will parse a string in correct format and move to the correct position" do
+    it "will parse a string in correct format and move to the correct position (using move forward and left" do
       rover = Rover.new(1, 2, @grid, FacingNorthState.new)
       rover.move("LMLMLMLMM")
       rover.location[:x].should eq 1
       rover.location[:y].should eq 3
       rover.state.direction.should eq "North"
+    end
+
+    it "will parse a string in correct format and move to the correct position (moving forward and right" do
+      rover = Rover.new(3, 3, @grid, FacingEastState.new)
+      rover.move("MMRMMRMRRM")
+      rover.location[:x].should eq 5
+      rover.location[:y].should eq 1
+      rover.state.direction.should eq "East"
     end
   end
 
